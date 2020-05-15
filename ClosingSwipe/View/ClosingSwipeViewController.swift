@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ClosingSwipeViewController.swift
 //  UIKitPDP
 //
 //  Created by Nikita Korolev on 09.04.2020.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ClosingSwipeViewController: UIViewController {
+
+    var viewModel: ClosingSwipeViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
 
 }
 
+extension ClosingSwipeViewController: ClosingSwipeViewInput {}
