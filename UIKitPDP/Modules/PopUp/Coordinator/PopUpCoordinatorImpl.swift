@@ -13,6 +13,7 @@ final class PopUpCoordinatorImpl {
 
     weak var root: UIViewController!
     weak var mainViewController: UIViewController!
+    private let transition = PanelTransition()
 
     init(root: UIViewController, mainViewController: UIViewController) {
         self.root = root
@@ -25,7 +26,13 @@ extension PopUpCoordinatorImpl: PopUpCoordinator {
 
     var main: UIViewController? { return mainViewController }
 
-    func run() {
+    func run() {        
+        mainViewController.transitioningDelegate = transition
+        mainViewController.modalPresentationStyle = .custom
         root.present(mainViewController, animated: true)
+    }
+    
+    func dismissPopUp() {
+        mainViewController.dismiss(animated: true, completion: nil)
     }
 }

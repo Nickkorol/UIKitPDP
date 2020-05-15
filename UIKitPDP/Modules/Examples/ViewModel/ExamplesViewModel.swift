@@ -8,4 +8,7 @@
 
 import Foundation
 
-protocol ExamplesViewModel {}
+protocol ExamplesViewModel {
+    func viewDidLoad()
+    func showExample(index: Int)
+}

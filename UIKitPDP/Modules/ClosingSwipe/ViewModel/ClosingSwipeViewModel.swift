@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol ClosingSwipeViewModel {}
+protocol ClosingSwipeViewModel {
+    func addNote()
+}

@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol PopUpViewModel {}
+protocol PopUpViewModel {
+    func doneButtonDidPress(text: String)
+}

@@ -11,4 +11,15 @@ import Foundation
 final class PopUpViewModelImpl: PopUpViewModel {
     var coordinator: PopUpCoordinator!
     weak var view: PopUpViewInput?
+    
+    private var output: PopUpOutput
+    
+    init(output: @escaping PopUpOutput) {
+        self.output = output
+    }
+    
+    func doneButtonDidPress(text: String) {
+        self.output(text)
+        coordinator.dismissPopUp()
+    }
 }

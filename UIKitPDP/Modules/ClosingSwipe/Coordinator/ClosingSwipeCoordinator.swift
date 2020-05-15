@@ -12,4 +12,5 @@ import UIKit
 protocol ClosingSwipeCoordinator {
     var main: UIViewController? { get }
     func run()
+    func showPopUp(output: @escaping PopUpOutput)
 }

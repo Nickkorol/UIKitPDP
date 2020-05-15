@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol ClosingSwipeViewInput: class {}
+protocol ClosingSwipeViewInput: class {
+    func configure(elements: [String])
+}

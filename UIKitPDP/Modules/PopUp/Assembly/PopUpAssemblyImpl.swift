@@ -12,9 +12,11 @@ import UIKit
 final class PopUpAssemblyImpl: PopUpAssembly {
 
     private let root: UIViewController!
+    private let output: PopUpOutput!
 
-    init(root: UIViewController) {
+    init(root: UIViewController, output: @escaping PopUpOutput) {
         self.root = root
+        self.output = output
     }
 
     func assembly() -> PopUpCoordinator {
@@ -23,7 +25,8 @@ final class PopUpAssemblyImpl: PopUpAssembly {
         guard let controller = storyboard.instantiateViewController(withIdentifier: identifier) as? PopUpViewController else {
             fatalError("PopUpViewController is needed")
         }
-        let viewModel = PopUpViewModelImpl()
+        
+        let viewModel = PopUpViewModelImpl(output: output)
         controller.viewModel = viewModel
 
         let coordinator = PopUpCoordinatorImpl(root: root, mainViewController: controller)

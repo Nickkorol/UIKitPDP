@@ -28,4 +28,26 @@ extension ExamplesCoordinatorImpl: ExamplesCoordinator {
     func run() {
         root.present(mainViewController, animated: true)
     }
+    
+    func showCustomLayer() {
+        let assembly = CustomLayerAssemblyImpl(root: mainViewController)
+        let coordinator = assembly.assembly()
+        guard let viewController = coordinator.main else { fatalError() }
+        mainViewController.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func showKeyboard() {
+        let assembly = KeyboardAssemblyImpl(root: mainViewController)
+        let coordinator = assembly.assembly()
+        guard let viewController = coordinator.main else { fatalError() }
+        mainViewController.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func showClosingSwipe() {
+        let assembly = ClosingSwipeAssemblyImpl(root: mainViewController)
+        let coordinator = assembly.assembly()
+        guard let viewController = coordinator.main else { fatalError() }
+        mainViewController.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }

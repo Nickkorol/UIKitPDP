@@ -1,24 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fU3-Pg-qJO">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fU3-Pg-qJO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Examples View Controller-->
         <scene sceneID="Zau-pg-DhQ">
             <objects>
-                <viewController restorationIdentifier="ExamplesViewController" storyboardIdentifier="ExamplesViewController" id="fU3-Pg-qJO" customClass="ExamplesViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ExamplesViewController" storyboardIdentifier="ExamplesViewController" id="fU3-Pg-qJO" customClass="ExamplesViewController" customModule="UIKitPDP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lqq-Sk-BEn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0kM-G4-WnX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="examplesCell" id="3zs-Yy-kFd">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3zs-Yy-kFd" id="Ppv-0L-kzs">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fU3-Pg-qJO" id="qf0-0Z-GqN"/>
+                                    <outlet property="delegate" destination="fU3-Pg-qJO" id="k8B-da-meA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0kM-G4-WnX" firstAttribute="top" secondItem="lqq-Sk-BEn" secondAttribute="top" id="GVf-yQ-bnK"/>
+                            <constraint firstItem="0kM-G4-WnX" firstAttribute="leading" secondItem="gTc-AR-0cK" secondAttribute="leading" id="Pea-dt-dn6"/>
+                            <constraint firstAttribute="bottom" secondItem="0kM-G4-WnX" secondAttribute="bottom" id="uOT-hf-tzo"/>
+                            <constraint firstItem="gTc-AR-0cK" firstAttribute="trailing" secondItem="0kM-G4-WnX" secondAttribute="trailing" id="zWu-t3-eZB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gTc-AR-0cK"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="0kM-G4-WnX" id="GQV-TN-LKJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fee-e4-ChC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

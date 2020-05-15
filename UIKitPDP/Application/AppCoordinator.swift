@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol AppCoordinator: class {
+    func run()
+}

@@ -1,28 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fU3-Pg-qJO">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CpN-9A-dU4">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Closing Swipe View Controller-->
         <scene sceneID="Zau-pg-DhQ">
             <objects>
-                <viewController restorationIdentifier="ClosingSwipeViewController" storyboardIdentifier="ClosingSwipeViewController" id="fU3-Pg-qJO" customClass="ClosingSwipeViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ClosingSwipeViewController" storyboardIdentifier="ClosingSwipeViewController" id="fU3-Pg-qJO" customClass="ClosingSwipeViewController" customModule="UIKitPDP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lqq-Sk-BEn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="izl-ql-G8s">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="closingSwipeCell" id="zr4-ai-Uw1">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zr4-ai-Uw1" id="j43-iQ-TdR">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fU3-Pg-qJO" id="dkm-or-zHg"/>
+                                    <outlet property="delegate" destination="fU3-Pg-qJO" id="p7j-QI-5rO"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gTc-AR-0cK" firstAttribute="trailing" secondItem="izl-ql-G8s" secondAttribute="trailing" id="5QN-gU-dDM"/>
+                            <constraint firstItem="izl-ql-G8s" firstAttribute="top" secondItem="lqq-Sk-BEn" secondAttribute="top" id="Ld9-V4-i97"/>
+                            <constraint firstItem="izl-ql-G8s" firstAttribute="leading" secondItem="gTc-AR-0cK" secondAttribute="leading" id="a3i-re-Ecj"/>
+                            <constraint firstAttribute="bottom" secondItem="izl-ql-G8s" secondAttribute="bottom" id="ch8-UH-FS3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gTc-AR-0cK"/>
                     </view>
+                    <navigationItem key="navigationItem" id="9tE-ED-eRe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Nmt-fe-LzM">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="fU3-Pg-qJO" id="l0x-GN-Yte"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="izl-ql-G8s" id="otL-mB-gLV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fee-e4-ChC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-538" y="-321"/>
+            <point key="canvasLocation" x="371.01449275362324" y="-321.42857142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fFo-JA-QPC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CpN-9A-dU4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3wb-dw-eTd">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fU3-Pg-qJO" kind="relationship" relationship="rootViewController" id="5im-Cf-6NQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I3s-BT-OaU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-539.13043478260875" y="-321.42857142857139"/>
         </scene>
     </scenes>
 </document>

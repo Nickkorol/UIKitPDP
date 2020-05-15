@@ -22,10 +22,17 @@ final class ClosingSwipeCoordinatorImpl {
 }
 
 extension ClosingSwipeCoordinatorImpl: ClosingSwipeCoordinator {
-
+    
     var main: UIViewController? { return mainViewController }
 
     func run() {
         root.present(mainViewController, animated: true)
     }
+    
+    func showPopUp(output: @escaping PopUpOutput) {
+        let assembly = PopUpAssemblyImpl(root: root, output: output)
+        let coordinator = assembly.assembly()
+        coordinator.run()
+    }
+
 }

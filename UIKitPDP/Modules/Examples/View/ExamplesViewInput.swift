@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol ExamplesViewInput: class {}
+protocol ExamplesViewInput: class {
+    func showHeaders(headers: [String])
+}

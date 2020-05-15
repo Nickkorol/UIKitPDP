@@ -7,3 +7,5 @@
 //
 
 import Foundation
+
+typealias PopUpOutput = (String) -> Void

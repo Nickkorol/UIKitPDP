@@ -6,4 +6,12 @@
 //  Copyright © 2020 Никита Королев. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MainContainer: UINavigationController {
+
+    override func show(_ vc: UIViewController, sender: Any?) {
+        pushViewController(vc, animated: true)
+    }
+
+}

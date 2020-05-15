@@ -12,4 +12,5 @@ import UIKit
 protocol PopUpCoordinator {
     var main: UIViewController? { get }
     func run()
+    func dismissPopUp()
 }
