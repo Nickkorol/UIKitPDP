@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fU3-Pg-qJO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Keyboard View Controller-->
+        <scene sceneID="Zau-pg-DhQ">
+            <objects>
+                <viewController restorationIdentifier="KeyboardViewController" storyboardIdentifier="KeyboardViewController" id="fU3-Pg-qJO" customClass="KeyboardViewController" customModule="UIKitPDP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lqq-Sk-BEn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJG-Fd-GEC" customClass="CustomView" customModule="UIKitPDP" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gTc-AR-0cK" firstAttribute="bottom" secondItem="zJG-Fd-GEC" secondAttribute="bottom" id="A1n-GD-ng2"/>
+                            <constraint firstItem="zJG-Fd-GEC" firstAttribute="top" secondItem="gTc-AR-0cK" secondAttribute="top" id="GHO-eu-cFM"/>
+                            <constraint firstItem="zJG-Fd-GEC" firstAttribute="leading" secondItem="gTc-AR-0cK" secondAttribute="leading" id="ZMf-x7-1gz"/>
+                            <constraint firstItem="gTc-AR-0cK" firstAttribute="trailing" secondItem="zJG-Fd-GEC" secondAttribute="trailing" id="ofH-Q0-vMj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gTc-AR-0cK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fee-e4-ChC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-539.13043478260875" y="-321.42857142857139"/>
+        </scene>
+    </scenes>
+</document>
