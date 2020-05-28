@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fU3-Pg-qJO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Buttons Animation View Controller-->
+        <scene sceneID="Zau-pg-DhQ">
+            <objects>
+                <viewController restorationIdentifier="ButtonsAnimationViewController" storyboardIdentifier="ButtonsAnimationViewController" id="fU3-Pg-qJO" customClass="ButtonsAnimationViewController" customModule="UIKitPDP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lqq-Sk-BEn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5y-Fj-QTg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gTc-AR-0cK" firstAttribute="trailing" secondItem="j5y-Fj-QTg" secondAttribute="trailing" id="RhO-7h-T8s"/>
+                            <constraint firstItem="gTc-AR-0cK" firstAttribute="bottom" secondItem="j5y-Fj-QTg" secondAttribute="bottom" id="rnY-sK-rmv"/>
+                            <constraint firstItem="j5y-Fj-QTg" firstAttribute="top" secondItem="gTc-AR-0cK" secondAttribute="top" id="sml-eQ-FNQ"/>
+                            <constraint firstItem="j5y-Fj-QTg" firstAttribute="leading" secondItem="gTc-AR-0cK" secondAttribute="leading" id="xbS-fh-hAL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gTc-AR-0cK"/>
+                    </view>
+                    <connections>
+                        <outlet property="playingView" destination="j5y-Fj-QTg" id="AM0-dz-pGq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fee-e4-ChC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-538" y="-321"/>
+        </scene>
+    </scenes>
+</document>

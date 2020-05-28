@@ -18,7 +18,13 @@ class PopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerKeyboardNotifications()
-        contentView.layer.cornerRadius = 24
+        let path = UIBezierPath(roundedRect:contentView.bounds,
+                                byRoundingCorners:[.topRight, .topLeft],
+                                cornerRadii: CGSize(width: 20, height:  20))
+
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        contentView.layer.mask = maskLayer
     }
     
     @IBAction func readyButtonDidPress(_ sender: UIButton) {

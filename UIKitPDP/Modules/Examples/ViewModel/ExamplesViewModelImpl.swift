@@ -29,6 +29,8 @@ final class ExamplesViewModelImpl: ExamplesViewModel {
             coordinator.showClosingSwipe()
         case 2:
             coordinator.showCustomLayer()
+        case 3:
+            coordinator.showButtonsAnimation()
         default:
             break
         }

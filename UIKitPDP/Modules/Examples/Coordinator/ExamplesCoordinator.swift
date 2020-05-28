@@ -15,4 +15,5 @@ protocol ExamplesCoordinator {
     func showCustomLayer()
     func showKeyboard()
     func showClosingSwipe()
+    func showButtonsAnimation()
 }

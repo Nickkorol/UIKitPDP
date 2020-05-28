@@ -50,4 +50,10 @@ extension ExamplesCoordinatorImpl: ExamplesCoordinator {
         mainViewController.navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func showButtonsAnimation() {
+        let assembly = ButtonsAnimationAssemblyImpl(root: mainViewController)
+        let coordinator = assembly.assembly()
+        guard let viewController = coordinator.main else { fatalError() }
+        mainViewController.navigationController?.pushViewController(viewController, animated: true)
+    }
 }
