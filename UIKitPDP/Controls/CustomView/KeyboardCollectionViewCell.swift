@@ -1,8 +1,8 @@
 //
-//  CustomCell.swift
+//  KeyboardCollectionViewCell.swift
 //  UIKitPDP
 //
-//  Created by Nikita Korolev on 20.04.2020.
+//  Created by Nikita Korolev on 05.06.2020.
 //  Copyright © 2020 Никита Королев. All rights reserved.
 //
 
@@ -15,26 +15,40 @@ enum PinCodeKeyboardTitles {
     case backspace
 }
 
-protocol CustomCollectionViewCellDelegate: class {
+protocol KeyboardCollectionViewCellDelegate: class {
     func addDigitToCode(digit: Int)
     func backspaceButtonPressed()
     func initiateBiometricAuth()
 }
 
-class CustomCell: UICollectionViewCell {
-    @IBOutlet weak var keyboardButton: UIButton!
+class KeyboardCollectionViewCell: UICollectionViewCell {
     
     private let biometricAuth = BiometricIDAuth()
     private var title: PinCodeKeyboardTitles?
-    weak var delegate: CustomCollectionViewCellDelegate?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    weak var delegate: KeyboardCollectionViewCellDelegate?
+
+    lazy var keyboardButton : UIButton = {
+        let button = UIButton(frame: self.bounds)
+        button.addTarget(self, action: #selector(keyboardButtonPressed(sender:)), for: .touchUpInside)
+        return button
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.addSubview(keyboardButton)
     }
-    
-    func configure(index: Int, canAuthWithBiometry: Bool) {
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.addSubview(keyboardButton)
+    }
+
+    func configure(index: Int, canAuthWithBiometry: Bool, backgroundColor: UIColor, cellFontColor: UIColor, cellFontSize: CGFloat) {
         keyboardButton.setTitle("", for: .normal)
         keyboardButton.setImage(nil, for: .normal)
+        keyboardButton.backgroundColor = backgroundColor
+        keyboardButton.setTitleColor(cellFontColor, for: .normal)
+        keyboardButton.titleLabel?.font = UIFont.systemFont(ofSize: cellFontSize)
         var pinCodeKeyboardButtonTitle = PinCodeKeyboardTitles.digit(number: index+1)
         switch index {
         case 9:
@@ -58,22 +72,18 @@ class CustomCell: UICollectionViewCell {
             keyboardButton.isHidden = !(biometricAuth.canEvaluatePolicy() && canAuthWithBiometry)
             switch biometricAuth.biometricType() {
             case .faceID:
-                keyboardButton.setImage(#imageLiteral(resourceName: "icon_faceID"), for: .normal)
+                keyboardButton.setImage(UIImage(named: "icon_faceID"), for: .normal)
             case .touchID:
-                keyboardButton.setImage(#imageLiteral(resourceName: "icon_touchID"), for: .normal)
+                keyboardButton.setImage(UIImage(named: "icon_touchID"), for: .normal)
             default:
                 keyboardButton.isHidden = true
             }
         case .backspace:
-            keyboardButton.setImage(#imageLiteral(resourceName: "icon_backspace"), for: .normal)
+            keyboardButton.setImage(UIImage(named: "icon_backspace"), for: .normal)
         }
     }
     
-    @IBAction func keyboardButtonPressed(_ sender: UIButton) {
-        switchKeyboardButtonPressAction()
-    }
-    
-    func switchKeyboardButtonPressAction() {
+    @objc func keyboardButtonPressed(sender: UIButton) {
         guard let title = self.title else {
             return
         }
@@ -88,5 +98,5 @@ class CustomCell: UICollectionViewCell {
             self.delegate?.addDigitToCode(digit: number)
         }
     }
-    
+
 }

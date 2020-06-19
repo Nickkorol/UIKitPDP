@@ -12,7 +12,7 @@ final class ClosingSwipeViewModelImpl: ClosingSwipeViewModel {
     var coordinator: ClosingSwipeCoordinator!
     weak var view: ClosingSwipeViewInput?
     
-    var elements = ["0", "1"]
+    var elements = [String]()
     
     func viewDidLoad() {
         view?.configure(elements: elements)
