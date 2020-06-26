@@ -26,6 +26,8 @@ class CustomLayerViewController: UIViewController {
     @IBOutlet private var blueColorSlider: UISlider!
     
     var shapeLayer = CAShapeLayer()
+    var myShapeLayer = CAShapeLayer()
+    var myView = MyView()
     var color = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
     let bezierPath = UIBezierPath()
     
@@ -33,15 +35,17 @@ class CustomLayerViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "Custom Layer"
         color = UIColor(red: CGFloat(redColorSlider.value), green: CGFloat(greenColorSlider.value), blue: CGFloat(blueColorSlider.value), alpha: 1)
+        myView = MyView(frame: viewForShapeLayer.bounds)
         let randomView = UIView(frame: CGRect(x: 20, y: 20, width: 250, height: 250))
         randomView.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
-        let myView = MyView(frame: viewForShapeLayer.bounds)
-        guard let myShapeLayer = myView.layer as? CAShapeLayer else { return }
-        shapeLayer = myShapeLayer
         setUpOpenPath()
         setUpShapeLayer()
-        randomView.layer.mask = shapeLayer
-        viewForShapeLayer.addSubview(randomView)
+        myView.layer.mask = shapeLayer
+        
+        if let layer = myView.layer as? CAShapeLayer {
+            myShapeLayer = layer
+        }
+        myView.addSubview(randomView)
         viewForShapeLayer.addSubview(myView)
     }
 
@@ -50,6 +54,7 @@ class CustomLayerViewController: UIViewController {
         
         if sender.isOn {
           shapeLayer.fillColor = color.cgColor
+          myShapeLayer.fillColor = color.cgColor
           
             if shapeLayer.fillRule == .nonZero {
             selectedSegmentIndex = FillRule.nonZero.rawValue
@@ -58,7 +63,8 @@ class CustomLayerViewController: UIViewController {
           }
         } else {
             selectedSegmentIndex = UISegmentedControl.noSegment
-          shapeLayer.fillColor = nil
+            shapeLayer.fillColor = nil
+            myShapeLayer.fillColor = nil
         }
         
         fillSegmentedControl.selectedSegmentIndex = selectedSegmentIndex
@@ -67,6 +73,7 @@ class CustomLayerViewController: UIViewController {
     @IBAction func fillSegmentedControlChanged(_ sender: UISegmentedControl) {
         fillSwitch.isOn = true
         shapeLayer.fillColor = color.cgColor
+        myShapeLayer.fillColor = color.cgColor
         var fillRule = CAShapeLayerFillRule.nonZero
         
         if sender.selectedSegmentIndex != FillRule.nonZero.rawValue {
@@ -74,9 +81,11 @@ class CustomLayerViewController: UIViewController {
         }
         
         shapeLayer.fillRule = fillRule
+        myShapeLayer.fillRule = fillRule
     }
     @IBAction func lineWidthSliderValueChanged(_ sender: UISlider) {
         shapeLayer.lineWidth = CGFloat(sender.value)
+        myShapeLayer.lineWidth = CGFloat(sender.value)
     }
     @IBAction func lineDashingSwitchChanged(_ sender: UISwitch) {
         if sender.isOn {
@@ -93,6 +102,8 @@ class CustomLayerViewController: UIViewController {
         let color = UIColor(red: red, green: CGFloat(greenColorSlider.value)/255, blue: CGFloat(blueColorSlider.value)/255, alpha: 1)
         shapeLayer.fillColor = fillSwitch.isOn ? color.cgColor : nil
         shapeLayer.strokeColor = color.cgColor
+        myShapeLayer.fillColor = fillSwitch.isOn ? color.cgColor : nil
+        myShapeLayer.strokeColor = color.cgColor
         self.color = color
     }
     
@@ -101,12 +112,16 @@ class CustomLayerViewController: UIViewController {
         let color = UIColor(red: CGFloat(redColorSlider.value)/255, green: green, blue: CGFloat(blueColorSlider.value)/255, alpha: 1)
         shapeLayer.fillColor = fillSwitch.isOn ? color.cgColor : nil
         shapeLayer.strokeColor = color.cgColor
+        myShapeLayer.fillColor = fillSwitch.isOn ? color.cgColor : nil
+        myShapeLayer.strokeColor = color.cgColor
         self.color = color
     }
     
     @IBAction func blueSliderChanged(_ sender: UISlider) {
         let blue = CGFloat(sender.value)/255
         let color = UIColor(red: CGFloat(redColorSlider.value)/255, green: CGFloat(greenColorSlider.value)/255, blue: blue, alpha: 1)
+        myShapeLayer.fillColor = fillSwitch.isOn ? color.cgColor : nil
+        myShapeLayer.strokeColor = color.cgColor
         shapeLayer.fillColor = fillSwitch.isOn ? color.cgColor : nil
         shapeLayer.strokeColor = color.cgColor
         self.color = color

@@ -114,7 +114,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="88" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="OLY-vi-Tig">
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="OLY-vi-Tig">
                                                         <rect key="frame" x="52.5" y="0.0" width="331.5" height="31"/>
                                                         <connections>
                                                             <action selector="greenSliderChanged:" destination="fU3-Pg-qJO" eventType="valueChanged" id="T5v-b1-3sf"/>
@@ -131,7 +131,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="176" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="EXt-VJ-BR3">
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="EXt-VJ-BR3">
                                                         <rect key="frame" x="40" y="0.0" width="344" height="31"/>
                                                         <connections>
                                                             <action selector="blueSliderChanged:" destination="fU3-Pg-qJO" eventType="valueChanged" id="S7O-Rd-daS"/>
