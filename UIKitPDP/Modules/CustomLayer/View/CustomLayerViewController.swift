@@ -25,7 +25,7 @@ class CustomLayerViewController: UIViewController {
     @IBOutlet private var greenColorSlider: UISlider!
     @IBOutlet private var blueColorSlider: UISlider!
     
-    let shapeLayer = CAShapeLayer()
+    var shapeLayer = CAShapeLayer()
     var color = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
     let bezierPath = UIBezierPath()
     
@@ -33,9 +33,16 @@ class CustomLayerViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "Custom Layer"
         color = UIColor(red: CGFloat(redColorSlider.value), green: CGFloat(greenColorSlider.value), blue: CGFloat(blueColorSlider.value), alpha: 1)
+        let randomView = UIView(frame: CGRect(x: 20, y: 20, width: 250, height: 250))
+        randomView.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+        let myView = MyView(frame: viewForShapeLayer.bounds)
+        guard let myShapeLayer = myView.layer as? CAShapeLayer else { return }
+        shapeLayer = myShapeLayer
         setUpOpenPath()
         setUpShapeLayer()
-        viewForShapeLayer.layer.addSublayer(shapeLayer)
+        randomView.layer.mask = shapeLayer
+        viewForShapeLayer.addSubview(randomView)
+        viewForShapeLayer.addSubview(myView)
     }
 
     @IBAction func fillSwitchChanged(_ sender: UISwitch) {
